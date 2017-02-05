@@ -17,10 +17,10 @@ if(!(_unit getVariable ["restrained",false])) exitWith {hint "Target is not rest
 if(!(_unit getVariable ["hostage",false])) exitWith {hint "Target is not a Hostage!"};
 if((_unit getVariable ["enslaved",false])) exitWith { hint "Your target has recently been enslaved, you must wait for their timer to expire to enslave them again"};
 if((player getVariable ["slaver",false])) exitWith { hint "You have recently enslaved someone and must wait for your timer to expire before enslaving someone else"};
-if(playerSide == west) exitWith {hint "Cops can't sell hostages!"};
-if(side _unit == west) exitWith {hint "Cops can't be sold into Slavery"};
-if(side _unit == independent) exitWith {hint "Medics can't be sold into Slavery"};
-if(player == _unit) exitWith {hint "You can't sell yourself!"};
+if(playerSide isEqualTo west) exitWith {hint "Cops can't sell hostages!"};
+if(side _unit isEqualTo west) exitWith {hint "Cops can't be sold into Slavery"};
+if(side _unit isEqualTo independent) exitWith {hint "Medics can't be sold into Slavery"};
+if(player isEqualTo _unit) exitWith {hint "You can't sell yourself!"};
 if(!isPlayer _unit) exitWith {hint "This is not a player!"};
 if(life_slaver) exitWith {hint "You have already enslaved someone, you must wait until your timer runs out!"}; 
 if((player distance (getMarkerPos "slave_trader_marker") > 10)) exitWith {hint "You are not close enough to the Slave Trader"};

@@ -112,11 +112,11 @@ class Life_Settings {
     bank_civ = 52000; //Amount of cash in bank for new civillians
     bank_med = 52000; //Amount of cash in bank for new medics
 
-    paycheck_cop = 3000; //Payment for cops
-    paycheck_civ = 1500; //Payment for civillians
-    paycheck_med = 2400; //Payment for medics
+    paycheck_cop = 1500; //Payment for cops
+    paycheck_civ = 800; //Payment for civillians
+    paycheck_med = 1500; //Payment for medics
 
-    paycheck_period = 7; //Scaled in minutes
+    paycheck_period = 3; //Scaled in minutes
     bank_transferTax = .05; //Tax that player pays when transferring money from ATM. Tax = Amount * multiplier
 
     /* Player Job System Configurations */
@@ -139,13 +139,13 @@ class Life_Settings {
     /* Vehicle Purchase Prices */
     vehicle_purchase_multiplier_CIVILIAN = 1; //Civilian Vehicle Buy Price = Config_Vehicle price * multiplier
     vehicle_purchase_multiplier_COP = .2; //Cop Vehicle Buy Price = Config_Vehicle price * multiplier
-    vehicle_purchase_multiplier_MEDIC = .1; //Medic Vehicle Buy Price = Config_Vehicle price * multiplier
+    vehicle_purchase_multiplier_MEDIC = .07; //Medic Vehicle Buy Price = Config_Vehicle price * multiplier
     vehicle_purchase_multiplier_OPFOR = -1; // -- NOT IN USE -- Simply left in for east support.
 
     /* Vehicle Rental Prices */
     vehicle_rental_multiplier_CIVILIAN = .80; //Civilian Vehicle Rental Price = Config_Vehicle price * multiplier
     vehicle_rental_multiplier_COP = .1; //Cop Vehicle Rental Price = Config_Vehicle price * multiplier
-    vehicle_rental_multiplier_MEDIC = .05; //Medic Vehicle Rental Price = Config_Vehicle price * multiplier
+    vehicle_rental_multiplier_MEDIC = .03; //Medic Vehicle Rental Price = Config_Vehicle price * multiplier
     vehicle_rental_multiplier_OPFOR = -1; // -- NOT IN USE -- Simply left in for east support.
 
     /* Vehicle Sell Prices */
@@ -208,7 +208,8 @@ class Life_Settings {
         {"STR_Crime_22","2000","22"},
         {"STR_Crime_23","5000","23"},
         {"STR_Crime_24","10000","24"},
-        {"STR_Crime_25","20000","25"}
+        {"STR_Crime_25","20000","25"},
+        {"STR_Crime_236","10000","26"}
     };
 };
 

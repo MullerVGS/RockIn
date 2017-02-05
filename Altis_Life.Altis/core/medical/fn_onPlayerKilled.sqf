@@ -2,7 +2,7 @@
 /*
     File: fn_onPlayerKilled.sqf
     Author: Bryan "Tonic" Boardwine
-
+	Edited by: Muller and Dexter
     Description:
     When the player dies collect various information about that player
     and pull up the death dialog / camera functionality.
@@ -47,13 +47,17 @@ _unit spawn {
     disableSerialization;
     _RespawnBtn = ((findDisplay 7300) displayCtrl 7302);
     _Timer = ((findDisplay 7300) displayCtrl 7301);
-
+	
+        if (playerSide isEqualTo independent || playerSide isEqualTo resistance) then {
+            _maxTime = time + 140;
+        } else { 
 			if (independent countSide playableUnits isEqualTo 0) then {
 				_maxTime = time + 180;
 			} else {
 				_maxTime = time + 360;
 			};
-
+		};
+		
     _RespawnBtn ctrlEnable false;
     waitUntil {_Timer ctrlSetText format [localize "STR_Medic_Respawn",[(_maxTime - time),"MM:SS"] call BIS_fnc_secondsToString];
     round(_maxTime - time) <= 0 || isNull _this};
@@ -67,13 +71,15 @@ _unit spawn {
     _requestBtn = ((findDisplay 7300) displayCtrl 7303);
     _requestBtn ctrlEnable false;
 
-
+    if (playerSide  isEqualTo independent || playerSide isEqualTo resistance) then {
+        _requestTime = time + 150;
+    } else {
         if (independent countSide playableUnits isEqualTo 0) then {
 				_requestTime = time + 180;
 			} else {
 				_requestTime = time + 360;
 			};
-
+    };
 
     waitUntil {round(_requestTime - time) <= 0 || isNull _this};
     _requestBtn ctrlEnable true;
@@ -155,6 +161,14 @@ life_carryWeight = 0;
 CASH = 0;
 life_is_alive = false;
 
+[] call life_fnc_hudUpdate; //Get our HUD updated.
+[player,life_settings_enableSidechannel,playerSide] remoteExecCall ["TON_fnc_manageSC",RSERV];
+
+[0] call SOCK_fnc_updatePartial;
+[3] call SOCK_fnc_updatePartial;
+if (playerSide isEqualTo civilian) then {
+    [4] call SOCK_fnc_updatePartial;
+};
 [] call life_fnc_hudUpdate; //Get our HUD updated.
 [player,life_settings_enableSidechannel,playerSide] remoteExecCall ["TON_fnc_manageSC",RSERV];
 

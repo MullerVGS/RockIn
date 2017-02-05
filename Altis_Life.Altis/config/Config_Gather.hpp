@@ -137,6 +137,14 @@ class CfgGather {
             zoneSize = 30;
         };
 		
+        class tobacco {
+            amount = 1;
+            zones[] = { "tobacco" };
+            item = "";
+            mined[] = { "tobacco" };
+            zoneSize = 5;
+        };
+		
         class ruby_raw {
             amount = 2;
             zones[] = { "ruby_mine" };
